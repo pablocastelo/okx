@@ -17,7 +17,7 @@ funding = Funding.FundingAPI(api_key, secret_key, passphrase, False, flag)
 default_ccy = 'USDT'
 valid_currencies = ['USDT', 'MXN']
 expected_columns = ['email', 'amount']
-output_headers = ['wdId', 'timestamp', 'email', 'amount']
+output_headers = ['wdId', 'timestamp', 'email', 'amount', 'code']
 
 withdrawal_rate_limit = 6 # per second
 
@@ -107,13 +107,14 @@ def main(file, currency):
                     amt=amount,
                     dest="3"
                 )
+                code = res['code']
                 data = res['data'][0]
                 tx_id = data['wdId']
                 email = row['email']
                 amount = row['amount']
                 timestamp = f"{datetime.now():%Y-%m-%d %H:%M:%S}"
                 
-                writer.writerow([tx_id, timestamp, email, amount])
+                writer.writerow([tx_id, timestamp, email, amount, code])
                 time.sleep(1 / withdrawal_rate_limit)
         
     click.echo(f"Payments processed successfully. Output file: {output_file_name}. Waiting for confirmations...")
