@@ -108,10 +108,7 @@ def main(file, currency):
                     dest="3"
                 )
                 code = res['code']
-                data = res['data'][0]
-                tx_id = data['wdId']
-                email = row['email']
-                amount = row['amount']
+                tx_id = res['data'][0]['wdId']
                 timestamp = f"{datetime.now():%Y-%m-%d %H:%M:%S}"
                 
                 writer.writerow([tx_id, timestamp, email, amount, code])
