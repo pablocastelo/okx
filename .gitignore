@@ -11,3 +11,7 @@ wheels/
 
 # Secret files
 .env
+
+# in and processed folders
+in/*
+processed/*
