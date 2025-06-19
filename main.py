@@ -108,7 +108,10 @@ def main(file, currency):
                     dest="3"
                 )
                 code = res['code']
-                tx_id = res['data'][0]['wdId']
+                if code == '0':
+                    tx_id = res['data'][0]['wdId']
+                else:
+                    tx_id = res['msg']
                 timestamp = f"{datetime.now():%Y-%m-%d %H:%M:%S}"
                 
                 writer.writerow([tx_id, timestamp, email, amount, code])
