@@ -78,7 +78,7 @@ uv run main.py -f payments.csv -c USDT
 ### Command Line Options
 
 - `-f, --file`: Path to the payment CSV file
-- `-c, --currency`: Currency to use (USDT or MXN, default: USDT)
+- `-c, --currency`: Currency to use (Only USDT is supported, default: USDT)
 
 ## How It Works
 

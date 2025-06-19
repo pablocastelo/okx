@@ -15,7 +15,7 @@ import okx.Funding as Funding
 flag = '0'  # '0' for live trading, '1' for paper trading
 funding = Funding.FundingAPI(api_key, secret_key, passphrase, False, flag)
 default_ccy = 'USDT'
-valid_currencies = ['USDT', 'MXN']
+valid_currencies = ['USDT']
 expected_columns = ['email', 'amount']
 output_headers = ['wdId', 'timestamp', 'email', 'amount', 'code']
 
