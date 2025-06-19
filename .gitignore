@@ -13,5 +13,5 @@ wheels/
 .env
 
 # in and processed folders
-in/*
-processed/*
+in/*.csv
+processed/*.csv
